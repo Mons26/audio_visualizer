@@ -41,7 +41,7 @@ void ConfigWindow::Update(Config& config, bool& start) {
 
     ImGui::Text(
         "WARING: sample count must be a power of 2, 1024 is recommended, "
-        "higher probably would make you cpu cry");
+        "higher probably would make your cpu cry");
     ImGui::InputInt("sample count", &config.sampleCount);
 
     if (ImGui::BeginCombo("songs", m_songSelected.c_str())) {
