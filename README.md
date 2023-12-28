@@ -1,2 +1,3 @@
 # audio_visualizer
-Adsadas
+An audio visualizer with Cooley-Tukey FFT algorithm
+I take no credits for all the songs used in the program
