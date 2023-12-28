@@ -34,7 +34,7 @@ inline T Clamp(T value, T min, T max) {
         return value;
 }
 
-inline float Hann(float n) { return sinf(M_PI * n); }
+inline float Hann(float n) { return std::pow(sinf(M_PI * n), 2); }
 
 inline float Lerp(float v0, float v1, float t) { return v0 + (v1 - v0) * t; }
 
