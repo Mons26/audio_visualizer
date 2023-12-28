@@ -3,8 +3,10 @@
 // Cooley-Tukey algorithm
 void FastFourierTransform(std::vector<Complex>& sample) {
     int n = sample.size();
+    // break when number of sample goes below 2
     if (n <= 1) return;
 
+    // split
     std::vector<Complex> even(n / 2);
     std::vector<Complex> odd(n / 2);
 
@@ -13,17 +15,23 @@ void FastFourierTransform(std::vector<Complex>& sample) {
         odd[i] = sample[2 * i + 1];
     }
 
+    // recursion
     FastFourierTransform(even);
     FastFourierTransform(odd);
+
+    // too complicated AHHHHH
     Complex wn = exp(Complex(0.0f, -2.0f * M_PI / (float)n));
     Complex w(1.0f, 0.0f);
 
+    // calculate Fourier Transform
     for (int i = 0; i < n / 2; ++i) {
         Complex t = w * odd[i];
 
+        // combine
         sample[i] = even[i] + t;
         sample[i + n / 2] = even[i] - t;
 
+        // rotate w by wn
         w *= wn;
     }
 }
@@ -55,6 +63,7 @@ void SampleAudio(const sf::Sound& audio, float frequency, int channel,
             continue;
         }
 
+        // get sample value and Hann windowing
         sample[i] = buffer->getSamples()[index] * SAMPLE_SCALE *
                     Hann((float)i / (float)sampleCount);
     }
