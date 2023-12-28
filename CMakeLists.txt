@@ -4,7 +4,7 @@ project(AudioVisualizer LANGUAGES CXX)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 
-# SFML setup
+# SFML
 include(FetchContent)
 FetchContent_Declare(SFML
     GIT_REPOSITORY https://github.com/SFML/SFML.git
@@ -13,7 +13,7 @@ FetchContent_Declare(SFML
     GIT_PROGRESS TRUE)
 FetchContent_MakeAvailable(SFML)
 
-# main program setup
+# main program
 set(VISUALIZER_H
     include/common.h
     include/graph.h
@@ -49,4 +49,4 @@ endif()
 
 install(TARGETS AudioVisualizer)
 
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/music DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin/Debug/)
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/music DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
