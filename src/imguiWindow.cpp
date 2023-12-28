@@ -40,7 +40,7 @@ void ConfigWindow::Update(Config& config, bool& start) {
     ImGui::SliderInt("band count", &config.bandCount, 0, 116);
 
     ImGui::Text(
-        "WARING: sample count must be a power of 2, 1024 is recommended, "
+        "WARING: sample count must be a power of 2, 1024 is recommended "
         "higher probably would make your cpu cry");
     ImGui::InputInt("sample count", &config.sampleCount);
 
