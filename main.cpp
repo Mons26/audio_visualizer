@@ -1,6 +1,6 @@
 #include "common.h"
 #include "graph.h"
-#include "Visualizer.h"
+#include "visualizer.h"
 #include "imguiWindow.h"
 
 int main(int argc, char* argv[]) {
